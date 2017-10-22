@@ -15,11 +15,11 @@ print(tobinary(10000,10))
 print(tobinary('123456',base=10))
 # 一种二进制转十进制的函数及其调用方式
 
-mydict={'base':'10'}
+mydict={'base':10}
 mylist=[8]
-# print(tobinary(101010,**mydict))
-# print(tobinary('123456',*mylist))
-# 这两条语句会报错
+print(tobinary(101010,**mydict))
+print(tobinary('123456',*mylist))
+
 import functools
 # 引入partial
 mybinary=functools.partial(int,base=2)

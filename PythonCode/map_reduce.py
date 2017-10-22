@@ -24,7 +24,7 @@ def tonum(x,y):
     return x*10+y
 
 print(reduce(tonum,mylist,100))
-# reduce接受三个形参,第一个形参是函数,第二个形参是序列(可迭代),第三个形参是计算的初识值
+# reduce接受三个形参,第一个形参是函数,第二个形参是序列(可迭代),第三个形参是计算的初始值
 print(reduce(tonum,'12345678',10))
 # 将字符串转换为数字
 

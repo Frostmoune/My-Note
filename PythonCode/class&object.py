@@ -46,6 +46,7 @@ class Human(object):
     # 注意,这样定义的函数相当于private函数
     
 newhuman=Human("Bill",19,98)
+# 定义对象的语法
 print(newhuman.score)
 # print(newhuman.__name)
 # print(newhuman.__age) 这两条语句都会报错,因为__name和__age变成private变量
@@ -90,3 +91,12 @@ Human.sex="male"
 print(newhuman.sex)
 # 注意只有在类内定义的__属性才是private的
 # newhuman.__test()会报错,说明private的函数也不可以在外部被访问
+
+people=Human()
+people.printcolor=lambda x:x
+print(people.printcolor("Red"))
+# 为对象绑定一个方法
+Human.addnum=lambda x:x+1
+print(Human.addnum(6))
+# 为类绑定一个方法
+# print(newhuman.add(7))会报错,说明类的对象并没有该方法
