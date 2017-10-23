@@ -20,6 +20,7 @@ class Dog(Animal): #Dog继承Animal
         # self.Animal(number,nowtype)
         super(Dog,self).__init__(number,nowtype) # 上一条语句是错的,super(class名,对象名)返回对应class的父类
         # 这样才能调用父类构造函数
+        # 如果子类定义了自己的初始化函数,而没有显示调用父类的初始化函数,则父类的属性不会被初始化
         self.color=color
     def run(self):
         print("Call Dog.run()")
