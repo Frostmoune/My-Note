@@ -12,7 +12,7 @@ print('javascript' in mydict)
 print(mydict.get('c++',5))
 print(mydict.get('javascript',6))
 print(mydict.get('javascript'))
-# 判断某个key是否在dict里面,如果在则返回对应的value,否则返回第二个参数,如果没有
+# 判断某个key是否在dict里面,如果在则返回对应的value,否则返回第二个参数,如果没有,
 # 第二个参数则返回None
 mydict['javacript']=60
 print(mydict)
@@ -21,7 +21,7 @@ mydict.pop('c++')
 print(mydict)
 # 往dict里面删除相应的key,pop必须有形参
 # mydict[['hello','world']]=12 这条语句会报错
-# dict里面的key必须是不可变的，由于list是可变的，所以不能作为key
+# dict里面的key必须是不可变的,由于list是可变的，所以不能作为key
 mydict[('hello','world')]=12
 print(mydict)
 # 同理,tuple可以作为key来使用

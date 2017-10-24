@@ -18,9 +18,18 @@ class Student(object):
     @property
     def name(self):
         return self.__name
+    def __getattr__(self,attr):
+        if attr=='finish':# 如果属性名为'finish'
+            return 'True'
+        if attr=='getscore':# 如果属性名为'getscore'
+            return lambda:self._score# 返回一个函数
+        return AttributeError("Student object has no attribute %s"%attr)# 否则输出没有这个属性
+    # __getattr__方法使得类的实例可以动态返回一个未被定义的属性或方法
 
 print(Student('Bill'))
 # 打印出<__main__.Student object at 0x0345EB10>
+print(Student('Sam',70).finish)
+print(Student('Sam',70).getscore())
 
 class NewStudent(Student):
     __slots__=()
@@ -37,6 +46,9 @@ class NewStudent(Student):
 
 who=NewStudent("Bob",80,19)
 who.grade,who.className=6,5
+print(who.finish)
+print(who.getscore())
+# 说明子类可以直接继承父类的__getattr__方法
 print(who)
 # 根据__str__方法打印出相应的内容
 print(who("My score is "))
@@ -61,3 +73,15 @@ more.grade,more.className=6,5
 print(more)
 # 子类同样可以继承父类的__str__()和__repr__()方法
     
+class Chain(object):
+    def __init__(self, path=''):
+        self._path = path
+    def __getattr__(self, path):
+        return Chain('%s/%s' % (self._path, path))
+        # 返回一个新chain
+    def __str__(self):
+        return self._path
+    __repr__ = __str__
+
+print(Chain('Student').father.wallet.money.cost.buy)
+# 这可以看做一个调用链,输出Student/father/wallet/money/cost/buy
