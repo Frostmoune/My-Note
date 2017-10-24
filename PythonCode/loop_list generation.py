@@ -16,6 +16,11 @@ print(L[1:9:3])
 print(L[::-1])
 # 返回反转后的list
 # tuple和字符串也有同样的操作,返回的结果是tuple(字符串)
+print(L[:5:-1])
+print(L[-2:3:-1])
+print(L[5:-2])
+print(L[10::-1])
+# 需要注意,切片中的值是相对位置,非负整数则是相对于list的开头,负数相对于list的末尾
 
 from collections import Iterable
 # 从collections模块引入Iterable类型
