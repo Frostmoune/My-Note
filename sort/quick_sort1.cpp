@@ -1,7 +1,10 @@
 void qsort(int arr[],int beg, int end) {
 	if (beg >= end)return;
 	int nowb = beg, nowe = end;
-	int num = arr[beg];
+	int num = arr[(beg+end)/2];
+	arr[(beg+end)/2]=arr[beg];
+	arr[beg]=num;
+	//每次都取中间的数作为基准数,并将它与当前数组的第一个数交换
 	while (nowb<nowe) {
 		while (nowb<nowe&&arr[nowe] >= num)--nowe;
 		arr[nowb] = arr[nowe];//把小于num的第一个数和num交换位置
