@@ -33,3 +33,8 @@ print(re.match(r'^[a|0]\w+',s2))
 print(re.match(r'^[a|0]\w+',s3))
 print(re.match(r'^[a|0]\w+',s4))
 # 匹配由a或0开头,以字母或数字结尾的字符串
+print(re.match(r'^aBc\+.+',s1))
+print(re.match(r'^aBc\+.+',s2))
+print(re.match(r'^aBc\+.+',s3))
+print(re.match(r'^aBc\+.+',s4))
+# 匹配由字符串aBc+开头的字符串
